@@ -7,7 +7,8 @@
 
 function countDown() {
     var now = new Date();
-    var eventDate = new Date(2019, 12, 25);
+    var eventDate = document.getElementById('eventDate');
+    eventDate = new Date(2020, 12, 25);
 
     var currentTime = now.getTime(); // le temps de maintenant
     var eventTime = eventDate.getTime();
@@ -23,13 +24,13 @@ function countDown() {
     s %= 60;
 
    if (h < 10){
-        h = "0" + h
+        h = "h" + h
     }
     if (m < 10){
-        m = "0" + m
+        m = "m" + m
     }
     if (s < 10){
-        s = "0" + s
+        s = "s" + s
     }
     if (s + m + h + d <= 0){
         resetTime()
