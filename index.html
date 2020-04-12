@@ -10,45 +10,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-
 
 
 </head>
 <body>
 
+    <div>
+        <h1>Countdown Titre PRO</h1>
+    </div>
 
-<table class="contdonwnContainer">
+    <div id="compte_a_rebours">
+        <h3 id="prefixe">Compte à rebours terminé dans: </h3>
+        <noscript>Fin de l'évènement le 11 mai 2020.</noscript></div>
 
-    <input type="date" id="eventDate">
-
-    <tr class="info">
-        <td class="txtCount" colspan="4"> Countdown </td>
-    </tr>
-
-    <tr class="time">
-        <td class ="date" id="days">days</td>
-        <td class ="date" id="hours">hours</td>
-        <td class ="date" id="minutes">minutes</td>
-        <td class ="date" id="seconds">seconds</td>
-    </tr>
-
-
-    <tr class="textTime">
-        <td>Days</td>
-        <td>Hours</td>
-        <td>Minutes</td>
-        <td>Seconds</td>
-    </tr>
-
-</table>
-
-<button id="btnStart">Start</button>
-<button id="btnStop">Stop</button>
-<!--<button id="btnChange">ChangeDate</button>
--->
-
+    <div id="btn">
+        <button id="btnStart">Start</button>
+        <button id="btnReset">Stop</button>
+    </div>
 
 <script src="script.js"></script>
 </body>

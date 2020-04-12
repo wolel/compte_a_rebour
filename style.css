@@ -1,68 +1,61 @@
 body{
     background-color: #f6f6f6;
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", serif;
 }
-.contdonwnContainer{
+div h1{
     position: absolute;
+    width: 50%;
+    top: 30%;
+    right: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+    background-color: #2d81ff;
+    padding: 30px;
+    color: white;
+    font-weight: bold;
+    border-top-left-radius: 40px;
+    box-shadow: 0 0 5px 1px #ccc;
+    font-family: "DK Lemon Yellow Sun", serif;
+    font-size: 50px;
+
+}
+
+#compte_a_rebours{
+    position: absolute;
+    width: 50%;
     top: 50%;
     left: 50%;
+    padding: 50px 60px 50px 60px;
     transform: translateX(-50%) translateY(-50%);
     text-align: center;
-    /*background: #ddd;*/
-    /*border: 1px solid #999;*/
     box-shadow: 0 0 5px 3px #ccc;
     border-bottom-right-radius: 40px;
-
+    font-size: 25px;
+    z-index: -1;
 }
-    .info{
-    font-size: 80px;
-    font-family: 'Permanent Marker', cursive;
-
-    }
-    td{
-    padding: 30px 50px 30px 50px;
-    }
-    .textTime{
-        color: #333;
-    }
-    .txtCount, .time {
-        color: #2d81ff;
-    }
-    .time{
-        font-size: 35px;
-        font-family: 'Permanent Marker', cursive;
-
-    }
-    .textTime{
-        font-size: 20px;
-        font-family: 'openSans', cursive;
-
-    }
-
-    #btnStop{
+#btn{
     position: absolute;
-    left: 55%;
-    /*transform: translateX(-50%) translateY(-50%);*/
-    cursor: pointer;
-    margin-top: 10px;
+    top: 70%;
+    left: 50%;
+    padding: 40px;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    border-bottom-right-radius: 40px;
+    font-size: 25px;
+}
+button{
+    padding: 20px;
+    border: none;
+    margin: 30px;
+    transform: scale(1);
 }
 
-    #btnStart{
-    position: absolute;
-    left: 37.7%;
-    /*transform: translateX(-50%) translateY(-50%);*/
-    cursor: pointer;
-    margin-top: 10px;
-
+button:hover{
+    transform: scale(1.3);
+    background-color:#EBF216 ;
+    border: none;
+    transition: transform .4s ease;
 }
-
-    #btnStart, #btnStop, #btnChange{
-    top: 75%;
-    padding: 10px 30px 10px 30px;
-    }
-    #btnStart:hover, #btnStop:hover, #btnChange:hover{
-        transform: scale(1.3);
-        background-color:#EBF216 ;
-        border: none;
-        padding: 10px 30px 10px 30px;
-        transition: transform .4s ease;
-    }

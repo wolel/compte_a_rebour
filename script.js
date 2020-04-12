@@ -1,73 +1,105 @@
-/**
- * function resetTime() {
-    document.querySelectorAll("td.date");}
- *
- */
+function countDown()
+{
+    var compte_a_rebours = document.getElementById("compte_a_rebours");
+
+    var date_actuelle = new Date();
+    var date_evenement = new Date("May 15 00:00:00 2020");
+    var total_secondes = (date_evenement - date_actuelle) / 1000;
 
 
-function countDown() {
-    var now = new Date();
-    var eventDate = document.getElementById('eventDate');
-    eventDate = new Date(2020, 12, 25);
 
-    var currentTime = now.getTime(); // le temps de maintenant
-    var eventTime = eventDate.getTime();
-    var remTime = eventTime - currentTime;
-
-    var s = Math.floor(remTime / 1000);
-    var m = Math.floor(s / 60)-30;
-    var h = Math.floor(m / 60)-30;
-    var d = Math.floor(h / 24)-29 ;
-
-    h %= 24;// modulo
-    m %= 60;
-    s %= 60;
-
-   if (h < 10){
-        h = "h" + h
-    }
-    if (m < 10){
-        m = "m" + m
-    }
-    if (s < 10){
-        s = "s" + s
-    }
-    if (s + m + h + d <= 0){
-        resetTime()
+    if (total_secondes < 0)
+    {
+        prefixe = "Compte à rebours terminé il y a "; // On modifie le préfixe si la différence est négatif
+        total_secondes = Math.abs(total_secondes); // On ne garde que la valeur absolue
     }
 
-    //h = (h < 10) ? "0" + h : h;
-    //h=condition--? true----: false
-
-    /**h = (h < 10) ? "0" + h : h;
-    m = (m < 10) ? "0" + m : m;
-    s = (s < 10) ? "0" + s : s;*/
-
-    document.getElementById('days').textContent = d;
-    document.getElementById('days').innerHTML = d;
-
-    document.getElementById('hours').textContent = h;
-    document.getElementById('minutes').textContent = m;
-    document.getElementById('seconds').textContent = s;
-
-    stop = setTimeout(countDown , 1000);
-    stop;
+    if (total_secondes > 0)
+    {
+        var jours = Math.floor(total_secondes / (60 * 60 * 24));
+        var heures = Math.floor((total_secondes - (jours * 60 * 60 * 24)) / (60 * 60));
+        minutes = Math.floor((total_secondes - ((jours * 60 * 60 * 24 + heures * 60 * 60))) / 60);
+        secondes = Math.floor(total_secondes - ((jours * 60 * 60 * 24 + heures * 60 * 60 + minutes * 60)));
 
 
+        var et = "et";
+        var mot_jour = "jours,";
+        var mot_heure = "heures,";
+        var mot_minute = "minutes,";
+        var mot_seconde = "secondes";
+
+        if (jours === 0)
+        {
+            jours = '';
+            mot_jour = '';
+        }
+        else if (jours === 1)
+        {
+            mot_jour = "jour,";
+        }
+
+        if (heures === 0)
+        {
+            heures = '';
+            mot_heure = '';
+        }
+        else if (heures === 1)
+        {
+            mot_heure = "heure,";
+        }
+
+        if (minutes === 0)
+        {
+            minutes = '';
+            mot_minute = '';
+        }
+        else if (minutes === 1)
+        {
+            mot_minute = "minute,";
+        }
+
+        if (secondes === 0)
+        {
+            secondes = '';
+            mot_seconde = '';
+            et = '';
+        }
+        else if (secondes === 1)
+        {
+            mot_seconde = "seconde";
+        }
+
+        if (minutes === 0 && heures === 0 && jours === 0)
+        {
+            et = "";
+        }
+
+        compte_a_rebours.style.cssText = 'color: #2d81ff';
+        compte_a_rebours.innerHTML = jours + ' ' + mot_jour + ' ' + heures + ' ' + mot_heure + ' ' + minutes + ' ' + mot_minute + ' ' + et + ' ' + secondes + ' ' + mot_seconde;
+    }
+    else
+    {
+        compte_a_rebours.innerHTML = 'Compte à rebours terminé.';
+    }
+
+    var actualisation = setTimeout("compte_a_rebours();", 1000);
+
+    /*----------------pause du temps-------------*/
+    reset = setTimeout(countDown , 1000);
+    reset;
 }
 
+
 var btnStart = document.getElementById('btnStart');
-var btnStop = document.getElementById('btnStop');
+var btnReset = document.getElementById('btnReset');
 
 btnStart.addEventListener( "click", countDown);
-console.log(btnStart);
 
-//------------------
-var stop;
+
+var reset;
 var stopCount  = function(){
-    clearTimeout(stop);
+    clearTimeout(reset);
 };
 
 
-btnStop.addEventListener("click", stopCount);
-console.log(btnStop);
+btnReset.addEventListener("click", stopCount);
